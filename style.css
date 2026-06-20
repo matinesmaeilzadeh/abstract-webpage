@@ -101,3 +101,43 @@ header {
         }
     }   
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 38rem;
+  padding: 5rem 15rem;
+  
+  & .card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 2rem 10rem;
+  
+    & img {
+      width: 5rem;
+      height: 5rem;
+      flex-shrink: 0;
+    }
+  
+    & h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+  
+  
+    & p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  
+  
+    & a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--color-text);
+      text-decoration: none;
+    }
+  }
+}
