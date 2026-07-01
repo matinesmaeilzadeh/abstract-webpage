@@ -7,11 +7,8 @@
     --color-text: #4C5FD5;
 }
 
-html {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
 body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
     font-size: 62.5%;
     min-height: 100vh;
     background: var(--bg-body-min);
@@ -27,7 +24,7 @@ body {
     align-items: center;
     justify-content: space-between;
     background: var(--bg-header-footer);
-    padding: 0 3rem;
+    padding: 0 1rem;
     height: 4rem;
     border-radius:  10px 10px 0px 0px;
 }
@@ -49,7 +46,6 @@ body {
     }
     & .divider {
         color: var(--color-white);
-        font-size: 1.2rem;
     }
     & .sub-brand {
         font-size: 1.2rem;
@@ -69,7 +65,7 @@ body {
     height: 2.4rem;
     border-radius: 10px;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.9rem;
     transition: transform 0.7s;
 
     &:hover {
@@ -78,7 +74,7 @@ body {
 }
 
 .btn-secondary {
-    width: 10rem;
+    width: 8rem;
     background: rgb(36, 36, 36);
     color: var(--color-white);
     border: 1px solid var(--color-white);
@@ -97,6 +93,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
     height: 27rem;
     background: var(--bg-min-search);
     gap: 2.5rem;
@@ -108,10 +105,12 @@ body {
 }
 
 .search-box {
-    width: 46rem;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
     & input {
-        width: 100%;
+        width: 46rem;
         height: 3rem;
         padding: 0 1rem;
         box-shadow: 0 4px 9px rgba(0, 0, 0, 0.282);
@@ -128,72 +127,74 @@ body {
     }
 }
 
-/* Features Grid */
-.features-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem 0;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 5rem 0;
+/* Features */
+.features {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
 }
 
 .card {
     display: flex;
-    align-items: flex-start;
-    gap: 1.25rem;
-    padding: 0 4rem;
+    margin-top: 6rem;
 
     & img {
         width: 5rem;
         height: 5rem;
-        flex-shrink: 0;
-    }
-}
-
-.card-content {
-    max-width: 24rem; 
-
-    & h2 {
-        font-size: 1.2rem;
-        margin-bottom: 0.4rem;
     }
 
-    & p {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
+    & .card-content {
+        margin-left: 2rem;
+        & h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.4rem;
+        }
 
-    & .card-link {
-        display: inline-block;
-        margin-top: 0.5rem;
-        font-size: 0.875rem;
-        color: var(--color-text);
-        text-decoration: none;
+        & p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
 
-        &:hover {
-            text-decoration: underline;
+        & .card-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--color-text);
+            text-decoration: none;
         }
     }
+
 }
 /* Footer */
 .main-footer {
     display: flex;
-    justify-content: center;
-    gap: 15rem;
+    justify-content: space-evenly;
     width: 100%;
-    height: 22rem;
+    margin-top: 6rem;
+    padding-bottom: 3rem;
     border-radius:  0 0 10px 10px;
     background: var(--bg-header-footer);
     color: var(--color-white);
     
-
+    
     & .footer-column {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        margin-top: 2rem;
+        margin-top: 3rem;
         
+        & div {
+            display: flex;
+            justify-content: space-between;
+            width: 9rem;
+            
+            & svg {
+                padding-left: 1rem;
+                display: none;
+                
+            }
+        }
+
         & h3 {
             font-size: 1.1rem;
             margin-bottom: 1rem;
@@ -201,11 +202,7 @@ body {
 
         & h4 {
             font-size: 1rem;
-            margin-top: 2rem;
-        }
-
-         & ul {
-            list-style: none;
+            margin-top: 3rem;
         }
 
         & a {
@@ -214,23 +211,7 @@ body {
             margin-top: 0.3rem;
             margin-left: 0;
             font-size: 0.9rem;
-            position: relative;
-            display: inline-block;
             padding-bottom: 2px;
-
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background: var(--color-text);
-                transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            &:hover::after {
-                width: 100%;
-            }
             &:hover {
                 color: var(--color-text);
             }
@@ -256,3 +237,116 @@ body {
 }
 
 
+
+/* 1024 px */
+@media (max-width: 1024px) {
+    .features {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+
+    .features > div {
+        width: 100%;
+        max-width: 40rem;
+    }
+
+    .hero-search h1 {
+        font-size: 3.5rem;
+    }
+}
+
+/* 900 px */
+@media (max-width: 900px) {
+    .main-header {
+        height: auto;
+        padding: 0.8rem 1rem;
+    }
+
+    .hero-search > h1 {
+        font-size: 2.5rem;
+    }
+    
+    .search-box > input {
+        width: 30rem;
+    }
+
+    .card {
+        margin-top: 3rem;
+    }
+
+    .main-footer {
+        align-items: center;
+        flex-direction: column;
+
+        & .footer-copyright {
+            margin-top: -6rem;
+            text-align: center;
+        }
+    
+        & a {
+            display: none;
+        }
+        
+        & .footer-column > div > svg {
+            display: inline-block;
+        }
+        & .svg-nested > svg {
+            margin-top: 2.88rem;
+        }
+    }
+}
+
+/* 545 px */
+@media (max-width: 545px) {
+    .divider , .sub-brand {
+        display: none;
+    }
+    .search-box > input {
+        width: 23rem;
+    }
+
+    .card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .card img {
+        margin: 0 auto;
+    }
+
+    .card .card-content {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+}
+
+/* 410 px */
+@media (max-width: 410px) {
+    .main-header {
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+
+        & .divider , .sub-brand {
+            display: none;
+        }
+    }
+
+    .logo-area {
+        flex-direction: column;
+    }
+
+    .header-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero-search h1 {
+        font-size: 1.5rem;
+    }
+
+    .search-box > input {
+        width: 100%;
+    }
+}
